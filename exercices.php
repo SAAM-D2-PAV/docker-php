@@ -1,44 +1,52 @@
 <?php
 
+// Given an array of integers nums and an integer target :
+// Input: nums = [2,7,11,15], target = 9
+
+// return indices of the two numbers such that they add up to target.
+// Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+// You may assume that each input would have exactly one solution, and you may not use the same element twice.
+// You can return the answer in any order
+
+
+
+
 class Solution {
 
-    /**
-     * @param String $s
-     * @return Integer
-     */
-    public function romanToInt($s): int
-    {
-
-        $symbols = [
-            'I' => 1,
-            'V' => 5,
-            'X' => 10,
-            'L' => 50,
-            'C' => 100,
-            'D' => 500,
-            'M' => 1000
-        ];
-
-
-        // Constraints:
-        // 1 <= s.length <= 15
-        if ( strlen($s) <= 1 || strlen($s) >= 15) {
-           throw new Exception("Entrée non conforme");
+    function twoSum($nums, $target) {
+        $numMap = [];  // Tableau associatif pour stocker le complément de chaque nombre
+        
+        foreach ($nums as $index => $num) {
+            $complement = $target - $num;
            
+            var_dump($complement);
+
+            if (array_key_exists($complement, $numMap)) {
+                return [$numMap[$complement], $index];
+            }
+            $numMap[$num] = $index;
         }
         
-        // s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
-        // It is guaranteed that s is a valid roman numeral in the range [1, 3999].
-
-        // I can be placed before V (5) and X (10) to make 4 and 9. 
-        // X can be placed before L (50) and C (100) to make 40 and 90. 
-        // C can be placed before D (500) and M (1000) to make 400 and 900.
-
-        return strlen($s);
+        return [];  // Aucune solution trouvée
     }
-
+    
+   
+    
 }
+//$sol = new Solution();
+//print_r($sol->twoSum([2, 7, 11, 15], 9));  // Output: [0, 1]
+//print_r($sol->twoSum([3, 2, 4], 6));       // Output: [1, 2]
+//print_r($sol->twoSum([3, 3], 6));          // Output: [0, 1]
 
-$test = new Solution();
 
-print $test->romanToInt('');
+//https://leetcode.com/problems/palindrome-number/
+$input  = array("php", 4.0, array("green", "red"));
+$reversed = array_reverse($input);
+$preserved = array_reverse($input, true);
+
+//print_r($input);
+//print_r($reversed);
+//print_r($preserved);
+
