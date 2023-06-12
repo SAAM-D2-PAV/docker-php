@@ -13,7 +13,7 @@
 
 
 
-class Solution {
+class Solution0 {
 
     function twoSum($nums, $target) {
         $numMap = [];  // Tableau associatif pour stocker le complément de chaque nombre
@@ -50,3 +50,33 @@ $preserved = array_reverse($input, true);
 //print_r($reversed);
 //print_r($preserved);
 
+class Solution {
+
+    /**
+     * @param Integer $x
+     * @return Boolean
+     */
+    function isPalindrome($x) {
+
+        if (!is_int($x) || $x < 0) {
+            throw new Exception("Erreur de saisie", 1);
+        }
+       
+        
+        $array = str_split($x);
+        $counter = count($array);
+
+        
+
+    
+        $first_part_array_slice = array_slice($array,0,$counter/2);
+        $second_part_array_split_and_reverse = array_reverse(array_slice($array, $counter/2));
+
+
+        return  $first_part_array_slice;
+        //return  $second_part_array_split_and_reverse;
+    }
+}
+
+$test = new Solution();
+print_r($test->isPalindrome(121));
