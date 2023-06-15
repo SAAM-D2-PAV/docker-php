@@ -25,6 +25,7 @@
         }
     },
     "scripts": {
-        "run-phpunit": "vendor/bin/phpunit"
+        "run-phpunit": "vendor/bin/phpunit tests/ --colors --testdox"
     }
 }
+
