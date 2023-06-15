@@ -34,11 +34,24 @@ COPY ./app .
 
 # run composer dump-autoload --optimize
 RUN composer dump-autoload --optimize
+# STOP ici si la commande suivante et utilisée
+# docker compose -f docker-compose.dev.yaml up -d
+# app:
+#    build:
+#       dockerfile: ./php/Dockerfile
+#       target: "${BUILD_TARGET:-app}"  BUILD_TARGET=app
+
+# si la commande suivante est utilisée 
+# docker compose -f docker-compose.dev.yaml --env-file .env.dev up -d
+#le processus continu
+# BUILD_TARGET:app_dev dans le env.dev
 
 # Dev image
 # This stage is meant to be target-built into a separate image
 # https://docs.docker.com/develop/develop-images/multistage-build/#stop-at-a-specific-build-stage
 # https://docs.docker.com/compose/compose-file/#target
+
+
 FROM app as app_dev
 
 # Xdebug has different modes / functionalities. We can default to 'off' and set to 'debug'

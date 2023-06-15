@@ -7,25 +7,30 @@ https://www.docker.com/
 docker compose up 'option' -d
 ```
  ### environnement local ⚠
-// dev + xdebug
+
+- dev 🥴
+
 ```sh
  docker compose -f docker-compose.dev.yaml up --build -d
  docker compose -f docker-compose.dev.yaml up -d
+```
 
+- dev + xdebug 😀
+
+```sh
  XDEBUG_MODE=debug docker compose -f docker-compose.dev.yaml up -d
+
  > ou via le fichier .env.dev
- docker compose --env-file .env.dev -f docker-compose.dev.yaml up -d
+
+ docker compose -f docker-compose.dev.yaml --env-file .env.dev up --build -d
+ docker compose -f docker-compose.dev.yaml --env-file .env.dev up -d
+ docker compose -f docker-compose.dev.yaml down
 ```
 
+- fin du service
 
-- information sur le container
 ```sh
-docker ps
-```
-
-- information sur le service
-```sh
-docker compose ps
+ docker compose -f docker-compose.dev.yaml down
 ```
 
 
