@@ -36,3 +36,7 @@ docker compose ps
  docker exec -it docker-php-app-1 sh
  ```
 
+ ### environnement local
+```sh
+docker compose -f docker-compose.dev.yaml up --env-file .env.local
+ ```
