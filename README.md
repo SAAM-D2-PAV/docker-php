@@ -53,3 +53,9 @@ redis-cli
 127.0.0.1:6379> FLUSHALL
 OK
  ```
+
+ ### PHP Unit
+```sh
+cd app/
+composer run-phpunit -filename-
+ ```
