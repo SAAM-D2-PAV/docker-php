@@ -3,6 +3,7 @@
 app/composer.lock
 app/vendor/
 .env
+# .env.dev
 ### macOS ###
 # General
 .DS_Store

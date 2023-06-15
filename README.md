@@ -2,15 +2,19 @@
 ### version juin 2023
 https://www.docker.com/
 ### COMMANDES UTILES 
-- run docker
 
-// prod
 ```sh
 docker compose up 'option' -d
 ```
-// dev 
+ ### environnement local ⚠
+// dev + xdebug
 ```sh
  docker compose -f docker-compose.dev.yaml up --build -d
+ docker compose -f docker-compose.dev.yaml up -d
+
+ XDEBUG_MODE=debug docker compose -f docker-compose.dev.yaml up -d
+ > ou via le fichier .env.dev
+ docker compose --env-file .env.dev -f docker-compose.dev.yaml up -d
 ```
 
 
@@ -24,21 +28,10 @@ docker ps
 docker compose ps
 ```
 
-### https://hub.docker.com/
-
-- Build image isolée
-```sh
- docker build -t mlr:php81 -f php/Dockerfile .
- ```
 
 ### Shell du container
 ```sh
  docker exec -it docker-php-app-1 sh
- ```
-
- ### environnement local
-```sh
-docker compose -f docker-compose.dev.yaml up --env-file .env.local
  ```
 
  ### Créer une nouvelle branche git 
