@@ -1,6 +1,6 @@
 {
-    "name": "garyclarke/translatethis",
-    "description": "A Docker demo app for garyclarke.tech",
+    "name": "mlr/docker-symfony-template",
+    "description": "thx garyclarke.tech",
     "minimum-stability": "dev",
     "license": "MIT",
     "authors": [
@@ -28,4 +28,3 @@
         "run-phpunit": "vendor/bin/phpunit tests/ --colors --testdox"
     }
 }
-

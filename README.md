@@ -1,6 +1,40 @@
-# DOCKER PHP TEMPLATE 
+# DOCKER PHP TEMPLATE VERSION SYMFONY
 ### version juin 2023
 https://www.docker.com/
+
+## Installation
+
+
+```sh
+git clone https://github.com/SAAM-D2-PAV/docker-php.git
+
+touch .env.dev
+// ajouter les élément suivants au fichier
+MYSQL_PORT: 3306
+MYSQL_PASSWORD: password
+MYSQL_DATABASE: docker-php
+MYSQL_USER: username
+REDIS_PORT: 6379
+XDEBUG_MODE:debug
+BUILD_TARGET:app_dev
+
+sh ./bin/dev-mode.sh -d --build
+
+cd app/
+
+composer install
+
+cd ..
+
+docker compose down
+
+sh ./bin/dev-mode.sh -d
+
+docker exec -it docker-php-app-1 sh
+symfony check:requirements
+exit
+```
+
 ### COMMANDES UTILES 
 
 ```sh
@@ -30,7 +64,10 @@ docker compose up 'option' -d
 - Commande dev mode avec l'héritage de fichiers
 
 ```sh
+
 > sh ./bin/dev-mode.sh -d  
+> sh ./bin/dev-mode.sh -d --build
+
 > docker compose -f docker-compose.yaml -f docker-compose.dev.yaml --env-file .env.dev up --build -d
 
 > docker compose -f docker-compose.yaml -f docker-compose.dev.yaml --env-file .env.dev up -d
