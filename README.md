@@ -30,6 +30,7 @@ docker compose up 'option' -d
 - Commande dev mode avec l'héritage de fichiers
 
 ```sh
+> sh ./bin/dev-mode.sh -d  
 > docker compose -f docker-compose.yaml -f docker-compose.dev.yaml --env-file .env.dev up --build -d
 
 > docker compose -f docker-compose.yaml -f docker-compose.dev.yaml --env-file .env.dev up -d
