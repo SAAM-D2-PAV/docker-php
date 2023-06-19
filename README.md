@@ -22,11 +22,12 @@ REDIS_PORT: 6379
 XDEBUG_MODE:debug
 BUILD_TARGET:app_dev
 
-
+cd ..
 sh ./bin/dev-mode.sh -d --build
 
+cd app/
 composer install
-
+cd ..
 docker compose down
 
 sh ./bin/dev-mode.sh -d
@@ -34,6 +35,9 @@ sh ./bin/dev-mode.sh -d
 docker exec -it docker-php-app-1 sh
 symfony check:requirements
 exit
+cd app/
+
+Start coding your Symfony App 😎
 ```
 
 ### COMMANDES UTILES 
