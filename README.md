@@ -1,4 +1,5 @@
 # DOCKER PHP TEMPLATE VERSION SYMFONY
+## symfony/skeleton:"6.3.*"
 ### version juin 2023
 https://www.docker.com/
 
@@ -7,8 +8,11 @@ https://www.docker.com/
 
 ```sh
 git clone https://github.com/SAAM-D2-PAV/docker-php.git
+git checkout docker-symfony
 
-touch .env.dev
+cd app/
+touch .env.local
+
 // ajouter les élément suivants au fichier
 MYSQL_PORT: 3306
 MYSQL_PASSWORD: password
@@ -18,13 +22,10 @@ REDIS_PORT: 6379
 XDEBUG_MODE:debug
 BUILD_TARGET:app_dev
 
+
 sh ./bin/dev-mode.sh -d --build
 
-cd app/
-
 composer install
-
-cd ..
 
 docker compose down
 
