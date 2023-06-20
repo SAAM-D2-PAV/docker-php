@@ -1,0 +1,22 @@
+name: SymfonyDeployment
+on:
+    push:
+        branches:
+            - docker-symfony
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Validate composer.json and composer.lock
+              run: composer validate --strict
+            - name: Install Composer Dependencies
+              working-directory: ./app
+              run: composer install --prefer-dist
+#            - name: Run Tests
+#              working-directory: ./app
+#              run: composer run-phpunit
+            - name: Build the Docker php image 
+              run: docker build --target app -f ./php/Dockerfile .
+            - name: Build the Docker nginx image
+              run: docker build -f ./nginx/Dockerfile .
