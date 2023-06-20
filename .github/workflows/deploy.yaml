@@ -9,6 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             - name: Validate composer.json and composer.lock
+              working-directory: ./app
               run: composer validate --strict
             - name: Install Composer Dependencies
               working-directory: ./app
