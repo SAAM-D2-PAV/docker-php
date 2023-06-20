@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos
 app/composer.lock
 app/vendor/
-.env
 # .env.dev
 ### macOS ###
 # General
