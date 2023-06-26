@@ -14,13 +14,13 @@ cd app/
 touch .env.local
 
 // ajouter les élément suivants au fichier
-MYSQL_PORT: 3306
-MYSQL_PASSWORD: password
-MYSQL_DATABASE: docker-php
-MYSQL_USER: username
-REDIS_PORT: 6379
-XDEBUG_MODE:debug
-BUILD_TARGET:app_dev
+MYSQL_PORT=3306
+MYSQL_PASSWORD=secret
+MYSQL_DATABASE=docker-symfony
+MYSQL_USER=user
+REDIS_PORT=6379
+XDEBUG_MODE=debug
+BUILD_TARGET=app_dev
 
 cd ..
 sh ./bin/dev-mode.sh -d --build
